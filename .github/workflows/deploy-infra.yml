@@ -11,7 +11,9 @@ jobs:
   deploy:
     name: Deploy Infrastructure
     runs-on: ubuntu-latest
-
+    env:
+      AWS_REGION: ${{ vars.AWS_REGION }}
+      STATE_BUCKET: ${{ vars.STATE_BUCKET }}
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
@@ -21,7 +23,7 @@ jobs:
       with:
         role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
         role-session-name: GitHubActionsSession
-        aws-region: ${{ vars.AWS_REGION }}
+        aws-region: ${{ env.AWS_REGION }}
 
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v3
@@ -32,8 +34,10 @@ jobs:
       run: |
         terraform init \
           -backend-config="bucket=$STATE_BUCKET"
+          -backend-config="region=$AWS_REGION"
       env:
-        STATE_BUCKET: ${{vars.STATE_BUCKET}}
+        STATE_BUCKET: ${{ env.STATE_BUCKET }}
+        AWS_REGION: ${{ env.AWS_REGION }}
 
     - name: Terraform format check
       run: terraform fmt --check -recursive
