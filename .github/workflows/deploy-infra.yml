@@ -33,7 +33,7 @@ jobs:
     - name: Terraform Init
       run: |
         terraform init \
-          -backend-config="bucket=$STATE_BUCKET"
+          -backend-config="bucket=$STATE_BUCKET" \
           -backend-config="region=$AWS_REGION"
       env:
         STATE_BUCKET: ${{ env.STATE_BUCKET }}
