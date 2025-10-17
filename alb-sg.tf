@@ -7,7 +7,7 @@ module "alb_sg" {
 
   vpc_id = module.vpc.vpc_id
 
-  ingress_cidr_blocks = [
+  ingress_with_cidr_blocks = [
     {
       rule        = "http-80-tcp"
       description = "All ingress HTTP traffic"
