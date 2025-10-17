@@ -11,7 +11,7 @@ module "alb_sg" {
     {
       rule        = "http-80-tcp"
       description = "All ingress HTTP traffic"
-      cidr_blocks = ["0.0.0.0/0"]
+      cidr_blocks = "0.0.0.0/0"
     }
   ]
 
@@ -19,7 +19,7 @@ module "alb_sg" {
     {
       rule        = "http-80-tcp"
       description = "All egress HTTP traffic"
-      cidr_blocks = ["0.0.0.0/0"]
+      cidr_blocks = "0.0.0.0/0"
     }
   ]
 }
