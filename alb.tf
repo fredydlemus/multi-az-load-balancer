@@ -1,3 +1,4 @@
+# Application Load Balancer
 resource "aws_lb" "app" {
   name               = "${local.name}-alb"
   load_balancer_type = "application"
@@ -10,6 +11,7 @@ resource "aws_lb" "app" {
   tags = local.tags
 }
 
+# Target Group for the Application Load Balancer
 resource "aws_lb_target_group" "app_tg" {
   name = "${local.name}-app-tg"
   vpc_id = module.vpc.vpc_id
@@ -30,6 +32,7 @@ resource "aws_lb_target_group" "app_tg" {
   tags = local.tags
 }
 
+# Listener for the Application Load Balancer
 resource "aws_lb_listener" "http" {
   load_balancer_arn = aws_lb.app.arn
   port = 80

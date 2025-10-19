@@ -1,3 +1,4 @@
+# Security group for the Application Load Balancer
 module "alb_sg" {
   source  = "terraform-aws-modules/security-group/aws"
   version = "~> 4.0"
