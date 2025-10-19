@@ -23,7 +23,7 @@ resource "aws_launch_template" "web" {
   instance_type          = "t3.micro"
   vpc_security_group_ids = [aws_security_group.asg_sg.id]
 
-  user_data = base64encode(file("user-data.sh"))
+  user_data = base64encode(file("./user-data.sh"))
 
   lifecycle {
     create_before_destroy = true
