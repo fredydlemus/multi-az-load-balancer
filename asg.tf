@@ -62,3 +62,17 @@ resource "aws_autoscaling_group" "web_asg" {
     create_before_destroy = true
   }
 }
+
+#Auto Scaling Group Policy
+resource "aws_autoscaling_policy" "cpu_tgt" {
+  name                   = "${local.name}-cpu50"
+  autoscaling_group_name = aws_autoscaling_group.web_asg.name
+
+  policy_type = "TargetTrackingScaling"
+  target_tracking_configuration {
+    predefined_metric_specification {
+      predefined_metric_type = "ASGAverageCPUUtilization"
+    }
+    target_value = 50
+  }
+}
