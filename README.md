@@ -17,7 +17,7 @@ This project showcases enterprise-grade AWS infrastructure automation using Infr
 
 ## 🏗️ Architecture
 
-![AWS Multi-AZ Load Balancer Architecture](./assets/architecture-diagram.png)
+![AWS Multi-AZ Load Balancer Architecture](./architecture-diagram.png)
 
 ## 🛠️ Technology Stack
 
