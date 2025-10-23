@@ -32,7 +32,7 @@ resource "aws_lb_target_group" "app_tg" {
   tags = local.tags
 }
 
-# Listener for the Application Load Balancer
+# Listener for the Application Load Balancer on port 80
 resource "aws_lb_listener" "http" {
   load_balancer_arn = aws_lb.app.arn
   port              = 80

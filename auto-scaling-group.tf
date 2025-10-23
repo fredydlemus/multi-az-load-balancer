@@ -63,7 +63,7 @@ resource "aws_autoscaling_group" "web_asg" {
   }
 }
 
-#Auto Scaling Group Policy
+# Auto Scaling Group Policy - Target Tracking CPU Utilization at 50%
 resource "aws_autoscaling_policy" "cpu_tgt" {
   name                   = "${local.name}-cpu50"
   autoscaling_group_name = aws_autoscaling_group.web_asg.name

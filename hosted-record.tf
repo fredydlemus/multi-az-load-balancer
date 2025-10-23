@@ -1,3 +1,4 @@
+# Create an alias record in Route 53 pointing to an Application Load Balancer
 resource "aws_route53_record" "alb_alias" {
   zone_id = var.hosted_zone_id
   name    = var.record_name
