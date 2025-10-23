@@ -1,4 +1,6 @@
 #!/bin/bash
+# User data script to set up a simple web server that serves a static HTML page
+# displaying the instance ID of the EC2 instance.
 
 set -ex
 
